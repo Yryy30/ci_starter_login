@@ -1,11 +1,14 @@
 # CodeIgniter 4 Application Starter with Login
 
-Run migration ```console
+Run migration 
+```console
 php spark migrate
 ```
-Run seeder ```console
+Run seeder 
+```console
 php spark db:seed Users
 ```
-Run app ```console
+Run app 
+```console
 php spark serve
 ```
