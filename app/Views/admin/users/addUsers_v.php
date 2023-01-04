@@ -29,18 +29,40 @@
       </div>
     </div>
   </header>
+  
 
   <div class="container">
-    <div class="card">
-      <div class="card-header">
-        Hello! <?= session()->get('name') ?>
-      </div>
-      <div class="card-body">
-        <blockquote class="blockquote mb-0">
-          <p>You are Logged In as <?= session()->get('role') ?></p>
-        </blockquote>
-      </div>
-    </div>
+    <form action="<?= base_url('/admin/add-users') ?>" method="post" enctype="multipart/form-data">
+        <div class="mb-3 col-sm-7">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name">
+        </div>
+        <div class="mb-3 col-sm-7">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" name="email">
+        </div>
+        <div class="mb-3 col-sm-7">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password">
+        </div>
+        <div class="mb-3 col-sm-7">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" class="form-control" name="phone">
+        </div>
+        <div class="mb-3 col-sm-7">
+            <label for="role" class="form-label">Role</label>
+            <select class="form-select" name="role">
+                <option value="admin">Admin</option>
+                <option value="operator">Operator</option>
+            </select>
+        </div>
+        <div class="mb-3 col-sm-7">
+            <label for="formFile" class="form-label">Profile Image</label>
+            <input class="form-control" type="file" name="profile_image">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br><br><br>
   </div>
 
 <?= $this->endSection() ?>

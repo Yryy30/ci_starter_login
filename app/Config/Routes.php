@@ -41,6 +41,12 @@ $routes->match(['get', 'post'], 'login', 'UserController::login', ["filter" => "
 // Admin Route
 $routes->group("admin", ["filter" => "auth"], function ($routes) {
     $routes->get("/", "AdminController::index");
+
+    //Users
+    $routes->get("list-users", "AdminController::listUsers");
+    $routes->get("form-users", "AdminController::formUsers");
+    $routes->match(["get", "post"], "add-users", "AdminController::addUsers");
+    $routes->get("delete-users/(:num)","AdminController::deleteUsers/$1");
 });
 
 // Operator Route
