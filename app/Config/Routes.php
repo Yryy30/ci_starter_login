@@ -45,7 +45,6 @@ $routes->group("admin", ["filter" => "auth"], function ($routes) {
     //Users
     $routes->get('listUser', 'AdminController::listUser');
     $routes->get('formUser', 'AdminController::formUser');
-    //$routes->get('editUser/(:num)', 'AdminController::editUser/$1');
     $routes->match(['get','post'], 'addUser', 'AdminController::addUser');
     $routes->match(['get','post'], 'updateUser/(:num)', 'AdminController::updateUser/$1');
     $routes->get('deleteUser/(:num)', 'AdminController::deleteUser/$1');

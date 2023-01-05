@@ -78,8 +78,6 @@ class AdminController extends BaseController
         return view("admin/users/formUsers_v");
     }
 
-
-
     public function updateUser($id = null)
     {
         $userModel = new UsersModel();
