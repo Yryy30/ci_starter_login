@@ -40,7 +40,7 @@ class Users extends Migration
 				'type'           => 'VARCHAR',
 				'constraint'     => 255,
 				'null'			 => true,
-				'default'		 => '/images/_profile/default.jpg',
+				'default'		 => 'default.jpg',
 			],
 			'create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP'
 		]);

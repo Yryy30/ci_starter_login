@@ -31,14 +31,34 @@
   </header>
 
   <div class="container">
+
+    <?php if(isset($validation)): ?>
+        <div class="alert alert-danger" role="alert">
+            <?= $validation->listErrors() ?>
+        </div>
+    <?php endif; ?>
+    <br>
+
     <div class="card">
       <div class="card-header">
-        Hello! <?= session()->get('name') ?>
+        Add User
       </div>
       <div class="card-body">
-        <blockquote class="blockquote mb-0">
-          <p>You are Logged In as <?= session()->get('role') ?></p>
-        </blockquote>
+        <form action="<?= base_url('admin/updateUser/' . $user['id']) ?>" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" name="name" value="<?= $user['name'] ?>">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" name="email" value="<?= $user['email'] ?>">
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" class="form-control" name="phone" value="<?= $user['phone'] ?>">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
     </div>
   </div>

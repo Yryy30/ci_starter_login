@@ -31,14 +31,45 @@
   </header>
 
   <div class="container">
+
+    <?php if(session()->has("success")) { ?>
+        <div class="alert alert-success"><?= session("success") ?></div>
+    <?php } ?>
+
     <div class="card">
       <div class="card-header">
-        Hello! <?= session()->get('name') ?>
+        <a href="<?= base_url('admin/formUser') ?>" class="btn btn-primary">Add</a>
       </div>
       <div class="card-body">
-        <blockquote class="blockquote mb-0">
-          <p>You are Logged In as <?= session()->get('role') ?></p>
-        </blockquote>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Profile</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">role</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $i=1; foreach($user as $user) { ?>
+                <tr>
+                    <td><?= $i++ ?></td>
+                    <td><img src="<?= base_url('images/_profile/'.$user['profile_image']) ?>" width="50"></td>
+                    <td><?= $user['name'] ?></td>
+                    <td><?= $user['email'] ?></td>
+                    <td><?= $user['phone'] ?></td>
+                    <td><?= $user['role'] ?></td>
+                    <td>
+                        <a href="<?= base_url('admin/updateUser/' . $user['id']); ?>" class="btn btn-warning">Edit</a>
+                        <a href="<?= base_url('admin/deleteUser/' . $user['id']); ?>" class="btn btn-danger" onclick="return confirm('Are you sure want to delete?')">Delete</a>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
       </div>
     </div>
   </div>
