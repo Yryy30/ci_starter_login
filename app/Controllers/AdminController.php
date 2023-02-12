@@ -33,6 +33,7 @@ class AdminController extends BaseController
         return view("admin/users/formUsers_v");
     }
 
+    //Add User
     public function addUser()
     {
         if($this->request->getPost()){
@@ -78,6 +79,7 @@ class AdminController extends BaseController
         return view("admin/users/formUsers_v");
     }
 
+    //Update User
     public function updateUser($id = null)
     {
         $userModel = new UsersModel();
@@ -108,6 +110,7 @@ class AdminController extends BaseController
         return view("admin/users/formEdit_v", ["user" => $user]);
     }
 
+    //Delete User
     public function deleteUser($id = null)
     {
         $userModel = new UsersModel();

@@ -16,7 +16,8 @@
 
         <div class="dropdown text-end">
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="<?php base_url() ?><?= session()->get('profile_image') ?>" alt="mdo" width="32" height="32" class="rounded-circle">
+            <?php $gbr = session()->get('profile_image') ?>
+            <img src="<?= base_url('images/_profile/'.$gbr) ?>" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small">
             <li><a class="dropdown-item" href="#">New project...</a></li>
